@@ -132,4 +132,11 @@ form.addEventListener('submit', function(event) {
   }
 
   closeCreatePostModal();
+
+  if ('serviceWorker' in navigator && 'SyncManager' in window) {
+    navigator.serviceWorker.ready
+      .then(function(sw) {
+        sw.sync.register('sync-new-post');
+      });
+  }
 });
