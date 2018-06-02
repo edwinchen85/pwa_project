@@ -163,7 +163,7 @@ form.addEventListener('submit', function(event) {
         };
         writeData('sync-posts', post)
           .then(function() {
-            return sw.sync.register('sync-new-post');
+            return sw.sync.register('sync-new-posts');
           })
           .then(function() {
             var snackbarContainer = document.querySelector('#confirmation-toast');
