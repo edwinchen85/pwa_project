@@ -54,13 +54,18 @@ function configurePushSub() {
     return;
   }
 
+  var reg;
   navigator.serviceWorker.ready
     .then(function(swreg) {
+      reg = swreg;
       return swreg.pushManager.getSubscription();
     })
     .then(function(sub) {
       if (sub === null) {
         // Create a new subscription
+        return reg.pushManager.subscribe({
+          userVisibleOnly: true
+        });
       } else {
         // We have a subscription
       }
