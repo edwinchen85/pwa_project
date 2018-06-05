@@ -35,7 +35,11 @@ function displayConfirmNotification() {
       vibrate: [100, 50, 200],   // vibrate, pause, vibrate
       badge: '/src/images/icons/app-icon-96x96.png',
       tag: 'confirm-notification',
-      renotify: true
+      renotify: true,
+      actions: [
+        { action: 'confirm', title: 'Okay', icon: '/src/images/icons/app-icon-96x96.png' },
+        { action: 'cancel', title: 'Cancel', icon: '/src/images/icons/app-icon-96x96.png' }
+      ]
     };
 
     navigator.serviceWorker.ready
